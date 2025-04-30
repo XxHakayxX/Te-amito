@@ -64,10 +64,10 @@
 
     #contador {
       position: absolute;
-      top: 490px; /* Lo posicionamos sobre el corazón */
+      top: 490px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2; /* Para que esté encima */
+      z-index: 2;
       color: #39c7f6bf;
       font-weight: bold;
       font-size: 18px;
@@ -114,6 +114,22 @@
       0% { transform: translateY(0) translateX(0); opacity: 1; }
       100% { transform: translateY(-800px) translateX(50px); opacity: 0; }
     }
+
+    /* Botón de música */
+    #boton-musica {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #ffb3c6;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffb3c6;
+    }
   </style>
 </head>
 <body>
@@ -124,13 +140,11 @@
   <p>Te quiero más de lo que puedo explicar,<br>
     más allá de lo que puedas imaginar.<br>
     Hablar contigo, aunque estemos lejos,<br>
-    es lo mejor de mis días, sin peros ni quejos.<br>
-    <br>
+    es lo mejor de mis días, sin peros ni quejos.<br><br>
     Tus ojos color café, mi paz y mi abrigo,<br>
     son tan hermosos que me pierdo contigo.<br>
     Y tu risa... tu risa es pura melodía,<br>
-    como ángeles cantando en plena armonía.<br>
-    <br>
+    como ángeles cantando en plena armonía.<br><br>
     Cómo me encantaría tenerte cerquita,<br>
     abrazarte fuerte, sin prisa, sin cita.<br>
     Porque contigo todo cobra sentido,<br>
@@ -142,6 +156,14 @@
 </div>
 
 <div class="heart"></div>
+
+<!-- Audio -->
+<audio id="miAudio" loop>
+  <source src="EsVerdad.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
+
+<button id="boton-musica" onclick="toggleAudio()">Yo te quiero mucho mas💕</button>
 
 <script>
   const inicioAmor = new Date("2025-04-18T23:17:00");
@@ -176,6 +198,17 @@
   }
 
   setInterval(crearCorazon, 500);
+
+  // Control de música
+  const audio = document.getElementById("miAudio");
+
+  function toggleAudio() {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
 </script>
 
 </body>
